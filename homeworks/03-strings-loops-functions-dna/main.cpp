@@ -54,7 +54,7 @@ int main()
 	std::cout << "         rna: " << transcribe_dna_into_rna(dna_example4) << "\n\n";
 
 	std::string dna_example5 = "CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGACTGGGAACCTGCGGGCAGTAGGTGGAAT";
-	std::cout << "dna example5: " << dna_example4 << "\n";
+	std::cout << "dna example5: " << dna_example5 << "\n";
 	std::cout << "  GC content: " << get_gc_content(dna_example5) << "\n";
 	return 0;
 }
