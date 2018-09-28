@@ -4,7 +4,7 @@
 class Invoice_Detail
 {
 public:
-	Invoice_Detail(double c, int u) : cost(c) units(u) {}
+	Invoice_Detail(double c, int u) : cost(c), units(u) {}
 	double get_extended_cost();
 
 private:
