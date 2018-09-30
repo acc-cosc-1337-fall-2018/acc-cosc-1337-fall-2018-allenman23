@@ -12,11 +12,11 @@ TEST_CASE("Test for set first player")
 {
 	Tic_Tac_Toe_Board game_x;
 	game_x.start_game("X");
-	REQUIRE(game_x.get_player() == "O");
+	REQUIRE(game_x.get_player() == "X");
 
 	Tic_Tac_Toe_Board game_o;
 	game_o.start_game("O");
-	REQUIRE(game_o.get_player() == "X");
+	REQUIRE(game_o.get_player() == "O");
 }
 
 TEST_CASE("Test for win by column")

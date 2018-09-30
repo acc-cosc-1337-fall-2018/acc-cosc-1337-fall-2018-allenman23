@@ -32,7 +32,6 @@ void Tic_Tac_Toe_Board::mark_board(int position)
 
 string Tic_Tac_Toe_Board::get_player()
 {
-	set_next_player();
 	return next_player;
 }
 
