@@ -54,114 +54,79 @@ void Tic_Tac_Toe_Board::set_next_player()
 
 bool Tic_Tac_Toe_Board::check_column_win()
 {
-	bool check1 = false;
-	bool check2 = false;
-	bool check3 = false;
-	if (pegs[0] == pegs[3])
-		check1 = true;
-	if (pegs[3] == pegs[6])
-		check2 = true;
-	if (pegs[0] == "X" || pegs[0] == "O")
-		check3 = true;
+	bool check1;
+	bool check2;
+	bool check3;
+//	check first column for all X's or O's
+	check1 = (pegs[0] == pegs[3]);
+	check2 = (pegs[3] == pegs[6]);
+	check3 = (pegs[0] == "X" || pegs[0] == "O");
 	if (check1 && check2 && check3)
 		return true;
-
-	check1 = false;
-	check2 = false;
-	check3 = false;
-	if (pegs[1] == pegs[4])
-		check1 = true;
-	if (pegs[4] == pegs[7])
-		check2 = true;
-	if (pegs[1] == "X" || pegs[1] == "O")
-		check3 = true;
+//  check second column for all X's or O's
+	check1 = (pegs[1] == pegs[4]);
+	check2 = (pegs[4] == pegs[7]);
+	check3 = (pegs[1] == "X" || pegs[1] == "O");
 	if (check1 && check2 && check3)
 		return true;
-
-	check1 = false;
-	check2 = false;
-	check3 = false;
-	if (pegs[2] == pegs[5])
-		check1 = true;
-	if (pegs[5] == pegs[8])
-		check2 = true;
-	if (pegs[2] == "X" || pegs[2] == "O")
-		check3 = true;
+//  check third column for all X's or O's
+	check1 = (pegs[2] == pegs[5]);
+	check2 = (pegs[5] == pegs[8]);
+	check3 = (pegs[2] == "X" || pegs[2] == "O");
 	if (check1 && check2 && check3)
 		return true;
-	else
+	else // return false if no columns are winners
 		return false;
 }
 
 bool Tic_Tac_Toe_Board::check_row_win()
 {
-	bool check1 = false;
-	bool check2 = false;
-	bool check3 = false;
-
-	if (pegs[0] == pegs[1])
-		check1 = true;
-	if (pegs[1] == pegs[2])
-		check2 = true;
-	if (pegs[0] == "X" || pegs[0] == "O")
-		check3 = true;
+	bool check1;
+	bool check2;
+	bool check3;
+	//	check first row for all X's or O's
+	check1 = (pegs[0] == pegs[1]);
+	check2 = (pegs[1] == pegs[2]);
+	check3 = (pegs[0] == "X" || pegs[0] == "O");
 	if (check1 && check2 && check3)
 		return true;
-
-	check1 = false;
-	check2 = false;
-	check3 = false;
-	if (pegs[3] == pegs[4])
-		check1 = true;
-	if (pegs[4] == pegs[5])
-		check2 = true;
-	if (pegs[3] == "X" || pegs[3] == "O")
-		check3 = true;
+	//  check second row for all X's or O's
+	check1 = (pegs[3] == pegs[4]);
+	check2 = (pegs[4] == pegs[5]);
+	check3 = (pegs[3] == "X" || pegs[3] == "O");
 	if (check1 && check2 && check3)
 		return true;
-
-	check1 = false;
-	check2 = false;
-	check3 = false;
-	if (pegs[6] == pegs[7])
-		check1 = true;
-	if (pegs[7] == pegs[8])
-		check2 = true;
-	if (pegs[6] == "X" || pegs[6] == "O")
-		check3 = true;
+	//  check third row for all X's or O's
+	check1 = (pegs[6] == pegs[7]);
+	check2 = (pegs[7] == pegs[8]);
+	check3 = (pegs[6] == "X" || pegs[6] == "O");
 	if (check1 && check2 && check3)
 		return true;
-	else
+	else // return false if no rows are winners
 		return false;
+
 }
 
 bool Tic_Tac_Toe_Board::check_diagonal_win()
 {
-	bool check1 = false;
-	bool check2 = false;
-	bool check3 = false;
-	if (pegs[0] == pegs[4])
-		check1 = true;
-	if (pegs[4] == pegs[8])
-		check2 = true;
-	if (pegs[0] == "X" || pegs[0] == "O")
-		check3 = true;
+	bool check1;
+	bool check2;
+	bool check3;
+	//	check first diagonal for all X's or O's
+	check1 = (pegs[0] == pegs[4]);
+	check2 = (pegs[4] == pegs[8]);
+	check3 = (pegs[0] == "X" || pegs[0] == "O");
 	if (check1 && check2 && check3)
 		return true;
-
-	check1 = false;
-	check2 = false;
-	check3 = false;
-	if (pegs[2] == pegs[4])
-		check1 = true;
-	if (pegs[4] == pegs[6])
-		check2 = true;
-	if (pegs[2] == "X" || pegs[2] == "O")
-		check3 = true;
+	//  check second diagonal for all X's or O's
+	check1 = (pegs[2] == pegs[4]);
+	check2 = (pegs[4] == pegs[6]);
+	check3 = (pegs[2] == "X" || pegs[2] == "O");
 	if (check1 && check2 && check3)
 		return true;
-	else
+	else // return false if no diagonals are winners
 		return false;
+
 }
 
 void Tic_Tac_Toe_Board::clear_board()
