@@ -18,3 +18,18 @@ TEST_CASE("Test cases for invoice get_total")
 	REQUIRE(invoice1.get_total() == 325);
 
 }
+
+TEST_CASE("Test invoice operator overloading")
+{
+	Invoice invoice1;
+	invoice1.add_invoice_detail(Invoice_Detail(10, 10));
+	invoice1.add_invoice_detail(Invoice_Detail(5, 5));
+	invoice1.add_invoice_detail(Invoice_Detail(100, 2));
+
+	Invoice invoice2;
+	invoice2.add_invoice_detail(Invoice_Detail(100, 2));
+
+	Invoice result = invoice1 + invoice2;
+	REQUIRE(result.get_total() == 525);
+
+}
