@@ -1,6 +1,7 @@
 //#include "invoice_detail.h"
 #include "invoice.h"
 #include<iostream>
+#include"invoice_utility.h"
 
 int main()
 {/*
@@ -22,6 +23,10 @@ int main()
 	Invoice result = invoice1 + invoice2;
 
 	std::cout << "invoice total: " << result.get_total();
+
+	Invoice_Utility inv(25);
+	inv.add_invoice_detail(Invoice_Detail(100, 1));
+	std::cout << "\ninvoice utility get_total(): " << inv.get_total();
 
 	return 0;
 }
