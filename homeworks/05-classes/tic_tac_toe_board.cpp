@@ -6,12 +6,15 @@ bool Tic_Tac_Toe_Board::game_over()
 {
 	if (check_column_win() || check_row_win() || check_diagonal_win())
 	{
-		cout << "WINNER\n";
+		if (next_player == "O")
+			++x_win;
+		else
+			++o_win;
 		return true;
 	}
 	if (check_board_full())
 	{
-		cout << "NO WINNER\n";
+		++c_win;
 		return true;
 	}
 	else
@@ -35,14 +38,14 @@ string Tic_Tac_Toe_Board::get_player()
 	return next_player;
 }
 
-void Tic_Tac_Toe_Board::display_board()
+/*void Tic_Tac_Toe_Board::display_board()
 {
 	cout << "\n";
 	for (int i = 0; i < 3; ++i)
 		cout << pegs[i * 3] << "|" << pegs[(i * 3) + 1] << "|" << pegs[(i * 3) + 2] << "\n";
 	cout << "\n";
 
-}
+}*/
 
 void Tic_Tac_Toe_Board::set_next_player()
 {
@@ -145,3 +148,39 @@ bool Tic_Tac_Toe_Board::check_board_full()
 	return true;
 }
 
+std::istream& operator>>(std::istream& in, Tic_Tac_Toe_Board& d)
+{
+	int position;
+	cout << "Enter position for " << d.get_player() << ": ";
+	in >> position;
+	d.mark_board(position);
+	return in;
+}
+
+std::ostream& operator<<(std::ostream& out, const Tic_Tac_Toe_Board& d)
+{
+	cout << "\n";
+	for (int i = 0; i < 3; ++i)
+		out << d.pegs[i * 3] << "|" << d.pegs[(i * 3) + 1] << "|" << d.pegs[(i * 3) + 2] << "\n";
+	out << "\nX Wins: " << d.x_win << "\nO Wins: " << d.o_win << "\nC Wins: " << d.c_win << "\n\n";
+	return out;
+}
+
+Tic_Tac_Toe_Board Tic_Tac_Toe_Board::operator+=(const Tic_Tac_Toe_Board& tttb)
+{
+	x_win += tttb.x_win;
+	o_win += tttb.o_win;
+	c_win += tttb.c_win;
+	return Tic_Tac_Toe_Board();
+}
+
+/*
+Tic_Tac_Toe_Board operator+(const Tic_Tac_Toe_Board& b, const Tic_Tac_Toe_Board& b2)
+{
+	Tic_Tac_Toe_Board tttb;
+	tttb.x_win = b.x_win + b2.x_win;
+	tttb.o_win = b.o_win + b2.o_win;
+	tttb.c_win = b.c_win + b2.c_win;
+	return tttb;
+}
+*/

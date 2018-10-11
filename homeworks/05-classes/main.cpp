@@ -4,40 +4,44 @@
 
 int main()
 {
-	Tic_Tac_Toe_Board tic_tac_toe_game;
-	string keep_playing;
-	int position;
-	string player;
-	bool valid_choice;
-	do
-	{
-		do
-		{
-			cout << "Which player shall go first? X or O : ";
-			cin >> player;
-			if ((player == "X") || (player == "O"))
-			{
-				cout << "\n";
-				valid_choice = true;
-			}
-			else
-			{
-				cout << "\nINVALID CHOICE\n\n";
-				valid_choice = false;
-			}
-		} while (!valid_choice);
+	Tic_Tac_Toe_Board a, b, c, result;
+	vector<Tic_Tac_Toe_Board> boards;
 
-		tic_tac_toe_game.start_game(player);
-		while (!tic_tac_toe_game.game_over())
-		{
-			cout << "Enter position for " << tic_tac_toe_game.get_player() << ": ";
-			cin >> position;
-			tic_tac_toe_game.mark_board(position);
-			tic_tac_toe_game.display_board();
-		}
-		cout << "\nEnter 1 to play again (Any other key to exit): ";
-		cin >> keep_playing;
+	a.start_game("X");
+	while (!a.game_over())
+	{
+		cout << "Tic Tac Toe Board A\n" << a;
+		cin >> a;
 		cout << "\n";
-	} while (keep_playing == "1");
+	}
+	cout << "Tic Tac Toe Board A\n" << a;
+
+	b.start_game("X");
+	while (!b.game_over())
+	{
+		cout << "Tic Tac Toe Board B\n" << b;
+		cin >> b;
+		cout << "\n";
+	}
+	cout << "Tic Tac Toe Board B\n" << b;
+
+	c.start_game("X");
+	while (!c.game_over())
+	{
+		cout << "Tic Tac Toe Board C\n" << c;
+		cin >> c;
+		cout << "\n";
+	}
+	cout << "Tic Tac Toe Board C\n" << c;
+
+	boards.push_back(a);
+	boards.push_back(b);
+	boards.push_back(c);
+	for (auto i : boards)
+	{
+		result += i;
+	}
+	cout << "Tic Tac Toe Board Result\n" << result;
+
 	return 0;
 }
