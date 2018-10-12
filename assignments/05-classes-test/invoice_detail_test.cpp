@@ -3,6 +3,7 @@
 //#include "invoice_detail.h"
 #include "invoice.h"
 #include "invoice_utility.h"
+#include "invoice_progress.h"
 
 TEST_CASE("Test cases for get extended cost")
 {
@@ -40,4 +41,11 @@ TEST_CASE("Test Invoice Utility get total")
 	Invoice_Utility inv(25);
 	inv.add_invoice_detail(Invoice_Detail(100, 1));
 	REQUIRE(inv.get_total() == 125);
+}
+
+TEST_CASE("Test Invoice Progress get_total")
+{
+	Invoice_Progress inv(250);
+	inv.add_invoice_detail(Invoice_Detail(100, 1));
+	REQUIRE(inv.get_total() == 150);
 }
