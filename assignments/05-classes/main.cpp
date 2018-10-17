@@ -3,6 +3,7 @@
 #include<iostream>
 #include"invoice_utility.h"
 #include"invoice_progress.h"
+#include <memory>
 
 class Shape
 {
@@ -25,19 +26,16 @@ public:
 
 int main()
 {
-	Invoice_Utility invu(25);
-	invu.add_invoice_detail(Invoice_Detail(100, 1));
-	Invoice_Progress invp(250);
-	invp.add_invoice_detail(Invoice_Detail(100, 1));
+//	std::unique_ptr<Shape> line = std::make_unique<Line>();
+//	line->draw();
+	std::vector<std::unique_ptr<Shape>> shapes;
+	shapes.push_back(std::make_unique<Line>());
+	shapes.push_back(std::make_unique<Circle>());
 
-	std::cout << invu.get_total() << "\n";
-	std::cout << invp.get_total() << "\n";
-
-	Invoice& u = invu;
-	Invoice& p = invp;
-
-	std::cout << u.get_total() << "\n";
-	std::cout << p.get_total() << "\n";
+	for (auto& shape : shapes)
+	{
+		shape->draw();
+	}
 
 	return 0;
 }
