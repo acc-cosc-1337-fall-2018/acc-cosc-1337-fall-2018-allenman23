@@ -4,6 +4,7 @@
 //#include<string>
 #include<vector>
 #include<iostream>
+#include "peg.h"
 
 using std::cout;
 using std::cin;
@@ -23,16 +24,18 @@ public:
 	friend std::istream& operator >>(std::istream& in, Tic_Tac_Toe_Board& d);
 	friend std::ostream& operator <<(std::ostream& out, const Tic_Tac_Toe_Board& d);
 //	friend Tic_Tac_Toe_Board operator+(const Tic_Tac_Toe_Board& b, const Tic_Tac_Toe_Board& b2);
-	Tic_Tac_Toe_Board operator+=(const Tic_Tac_Toe_Board& tttb);
+//	Tic_Tac_Toe_Board operator+=(const Tic_Tac_Toe_Board& tttb);
 
-private:
+protected:
 	void set_next_player();
-	bool check_column_win();
-	bool check_row_win();
-	bool check_diagonal_win();
+	virtual bool check_column_win() const = 0;
+	virtual bool check_row_win() const = 0;
+	virtual bool check_diagonal_win() const = 0;
+	virtual void display_board(std::ostream& out) const = 0;
+	virtual void get_input(std::istream& in) = 0;
 	void clear_board();
-	bool check_board_full();
-	vector<string> pegs{ 9, " " };
+	bool check_board_full() const;
+	vector<Peg> pegs;
 	string next_player;
 	int x_win{ 0 };
 	int o_win{ 0 };
