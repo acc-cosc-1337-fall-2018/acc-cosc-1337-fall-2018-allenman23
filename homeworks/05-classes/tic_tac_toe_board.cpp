@@ -73,10 +73,3 @@ std::ostream& operator<<(std::ostream& out, const Tic_Tac_Toe_Board& d)
 	d.display_board(out);
 	return out;
 }
-
-void get_input(std::istream& in)
-{}
-int position;
-cout << "Enter position for " << d.get_player() << ": ";
-in >> position;
-d.mark_board(position);

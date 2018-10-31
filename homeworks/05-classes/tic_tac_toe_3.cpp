@@ -100,5 +100,4 @@ void TicTacToe3::get_input(std::istream & in)
 	cout << "Enter position for " << get_player() << ": ";
 	in >> position;
 	mark_board(position);
-
 }

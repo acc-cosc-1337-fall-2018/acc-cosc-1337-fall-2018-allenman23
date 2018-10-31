@@ -20,7 +20,6 @@ public:
 	void start_game(string player);
 	void mark_board(int position);
 	string get_player();
-//	void display_board();
 	friend std::istream& operator >>(std::istream& in, Tic_Tac_Toe_Board& d);
 	friend std::ostream& operator <<(std::ostream& out, const Tic_Tac_Toe_Board& d);
 //	friend Tic_Tac_Toe_Board operator+(const Tic_Tac_Toe_Board& b, const Tic_Tac_Toe_Board& b2);
