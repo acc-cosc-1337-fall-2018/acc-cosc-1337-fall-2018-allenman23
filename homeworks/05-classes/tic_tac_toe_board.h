@@ -22,8 +22,6 @@ public:
 	string get_player();
 	friend std::istream& operator >>(std::istream& in, Tic_Tac_Toe_Board& d);
 	friend std::ostream& operator <<(std::ostream& out, const Tic_Tac_Toe_Board& d);
-//	friend Tic_Tac_Toe_Board operator+(const Tic_Tac_Toe_Board& b, const Tic_Tac_Toe_Board& b2);
-//	Tic_Tac_Toe_Board operator+=(const Tic_Tac_Toe_Board& tttb);
 
 protected:
 	void set_next_player();

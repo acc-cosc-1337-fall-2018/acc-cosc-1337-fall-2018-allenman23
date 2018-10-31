@@ -69,7 +69,6 @@ bool TicTacToe3::check_row_win() const
 		return true;
 	else // return false if no rows are winners
 		return false;
-
 }
 
 bool TicTacToe3::check_diagonal_win() const
@@ -91,7 +90,6 @@ bool TicTacToe3::check_diagonal_win() const
 		return true;
 	else // return false if no diagonals are winners
 		return false;
-
 }
 
 void TicTacToe3::get_input(std::istream & in)
