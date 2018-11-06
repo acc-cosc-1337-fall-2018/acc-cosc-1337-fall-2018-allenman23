@@ -15,14 +15,14 @@ class Tic_Tac_Toe_Board
 {
 public:
 	Tic_Tac_Toe_Board() = default;
-	Tic_Tac_Toe_Board(int x, int o, int c) : x_win(x), o_win(o), c_win(c) {}
+//	Tic_Tac_Toe_Board(int x, int o, int c) : x_win(x), o_win(o), c_win(c) {}
 	bool game_over();
 	void start_game(string player);
 	void mark_board(int position);
 	string get_player();
 	friend std::istream& operator >>(std::istream& in, Tic_Tac_Toe_Board& d);
 	friend std::ostream& operator <<(std::ostream& out, const Tic_Tac_Toe_Board& d);
-
+	string get_winner();
 protected:
 	void set_next_player();
 	virtual bool check_column_win() const = 0;
@@ -34,9 +34,6 @@ protected:
 	bool check_board_full() const;
 	vector<Peg> pegs;
 	string next_player;
-	int x_win{ 0 };
-	int o_win{ 0 };
-	int c_win{ 0 };
 };
 
 

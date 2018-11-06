@@ -14,7 +14,6 @@ void TicTacToe4::display_board(std::ostream& out) const
 	cout << "\n";
 	for (int i = 0; i < 4; ++i)
 		out << pegs[i * 4].val << "|" << pegs[(i * 4) + 1].val << "|" << pegs[(i * 4) + 2].val << "|" << pegs[(i * 4) + 3].val << "\n";
-	out << "\nX Wins: " << x_win << "\nO Wins: " << o_win << "\nC Wins: " << c_win << "\n\n";
 }
 
 bool TicTacToe4::check_column_win() const

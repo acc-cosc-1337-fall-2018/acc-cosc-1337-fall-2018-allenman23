@@ -5,18 +5,9 @@
 bool Tic_Tac_Toe_Board::game_over()
 {
 	if (check_column_win() || check_row_win() || check_diagonal_win())
-	{
-		if (next_player == "O")
-			++x_win;
-		else
-			++o_win;
 		return true;
-	}
 	if (check_board_full())
-	{
-		++c_win;
 		return true;
-	}
 	else
 		return false;
 }
@@ -72,4 +63,20 @@ std::ostream& operator<<(std::ostream& out, const Tic_Tac_Toe_Board& d)
 {
 	d.display_board(out);
 	return out;
+}
+
+string Tic_Tac_Toe_Board::get_winner()
+{
+	if (check_column_win() || check_row_win() || check_diagonal_win())
+	{
+		if (next_player == "O")
+			return "X";
+		else
+			return "O";
+	}
+	if (check_board_full())
+	{
+		return "C";
+	}
+	return "Game not over";
 }
