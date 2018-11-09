@@ -1,5 +1,4 @@
 #include "tic_tac_toe_manager.h"
-#include "tic_tac_toe_manager.h"
 
 std::unique_ptr<Tic_Tac_Toe_Board> Tic_Tac_Toe_Manager::get_game(GameType gt)
 {
