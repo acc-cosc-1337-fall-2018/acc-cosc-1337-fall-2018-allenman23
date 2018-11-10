@@ -23,6 +23,8 @@ public:
 	friend std::istream& operator >>(std::istream& in, Tic_Tac_Toe_Board& d);
 	friend std::ostream& operator <<(std::ostream& out, const Tic_Tac_Toe_Board& d);
 	string get_winner();
+	vector<Peg>& get_pegs();
+
 protected:
 	void set_next_player();
 	virtual bool check_column_win() const = 0;

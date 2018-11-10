@@ -1,23 +1,35 @@
 #ifndef PANEL_H
 #define PANEL_H
-#include <wx/wx.h>
-#include "frame.h"
+#include<wx/wx.h>
+#include<vector>
+#include<string>
+#include<memory>
 #include "tic_tac_toe_manager.h"
-#include <string>
-#include <vector>
 
 class Panel : public wxPanel
 {
 public:
 	Panel(wxWindow* parent);
 private:
-	void OnButtonClick(wxCommandEvent& event);
-	void OnList(wxCommandEvent& event);
-	wxTextCtrl* m_nameEntry;
-	wxRadioBox* radio_box;
-	wxListBox* list_box;
-	std::vector<std::string> list_options{ "joe", "larry", "curly" };
-	Tic_Tac_Toe_Manager ttt_manager;
+	wxBoxSizer* get_top_box_sizer();
+	wxBoxSizer* get_mid_box_sizer();
+	wxGridSizer* get_grid_sizer(int size);
+	void on_start_button_click(wxCommandEvent& event);
+	void on_peg_button_click(wxCommandEvent& event);
+	void on_list_box_click(wxCommandEvent& event);
+	void set_button_properties(wxGridSizer* sizer);
+
+	wxRadioBox* game_type_radio;
+	wxRadioBox* first_player_radio;
+	wxButton* start_button;
+	wxGridSizer* tic_tac_toe_grid_3;
+	wxGridSizer* tic_tac_toe_grid_4;
+	wxListBox* history_list_box;
+	wxTextCtrl* winner_text;
+
+	std::unique_ptr<Tic_Tac_Toe_Manager> manager;
+	std::unique_ptr<Tic_Tac_Toe_Board> board;
+
 };
 
-#endif // ! PANEL_H
+#endif // !PANEL_H

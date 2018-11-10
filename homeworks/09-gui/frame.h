@@ -1,17 +1,12 @@
 #ifndef FRAME_H
 #define FRAME_H
-#include <wx/wx.h>
-//#include "menu_bar.h"
-#include "panel.h"
+#include<wx/wx.h>
 
 class Frame : public wxFrame
 {
 public:
-	Frame();	
+	Frame();
 private:
-	void OnHello(wxCommandEvent& event);
-	void OnExit(wxCommandEvent& event);
-	void OnAbout(wxCommandEvent& event);
 };
 
-#endif // ! FRAME_H
+#endif // !FRAME_H

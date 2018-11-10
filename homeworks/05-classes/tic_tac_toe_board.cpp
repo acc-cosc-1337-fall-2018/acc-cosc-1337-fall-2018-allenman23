@@ -80,3 +80,17 @@ string Tic_Tac_Toe_Board::get_winner()
 	}
 	return "Game not over";
 }
+
+vector<Peg>& Tic_Tac_Toe_Board::get_pegs()
+{
+	/*
+
+		STOP copying my code!!! Copying and pasting my work and passing it off as your ideas is SCHOLASTIC DISHONESTY!!!
+		I spend alot of time writing and debugging my code and I didn't do it for YOU!!! If I catch you STEALING my work
+		again, I will notify the instructor and ACC!!! STOP CHEATING and do your own work!!!
+
+	*/
+
+	return pegs;
+}
+
