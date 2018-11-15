@@ -15,11 +15,10 @@ enum GameType
 class Tic_Tac_Toe_Manager
 {
 	public:
-		Tic_Tac_Toe_Manager() = default;
-		Tic_Tac_Toe_Manager(int x, int o, int c) : x_win(x), o_win(o), c_win(c) {}
 		std::unique_ptr<Tic_Tac_Toe_Board> get_game(GameType gt);
 		void save_game(std::unique_ptr<Tic_Tac_Toe_Board> b);
 		friend std::ostream& operator <<(std::ostream& out, const Tic_Tac_Toe_Manager& m);
+		const vector<std::unique_ptr<Tic_Tac_Toe_Board>>& get_games();
 
 	private:
 		vector<std::unique_ptr<Tic_Tac_Toe_Board>> boards;

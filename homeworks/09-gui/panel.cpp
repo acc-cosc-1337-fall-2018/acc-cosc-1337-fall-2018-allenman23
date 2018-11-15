@@ -4,22 +4,15 @@
 Class Constructor
 
 STUDENT MUST WRITE CODE FOR THIS
-1) Create an instance of unique_ptr<TicTacToeBoard> using std::make_unique 
+1) Create an instance of unique_ptr<TicTacToeManager> using std::make_unique 
 
 @param wxWindow* the parent window for the Panel class
 */
-Panel::Panel(wxWindow* parent) 
-	: wxPanel(parent, -1)
+Panel::Panel(wxWindow* parent) : wxPanel(parent, -1)
 {
-	//Create an instance of unique_ptr<TicTacToeBoard> using std::make_unique 
+	//Create an instance of unique_ptr<TicTacToeManager> using std::make_unique 
 
-/*
-
-	STOP copying my code!!! Copying and pasting my work and passing it off as your ideas is SCHOLASTIC DISHONESTY!!!
-	I spend alot of time writing and debugging my code and I didn't do it for YOU!!! If I catch you STEALING my work
-	again, I will notify the instructor and ACC!!! STOP CHEATING and do your own work!!!
-
-*/
+	manager = std::make_unique<Tic_Tac_Toe_Manager>();
 
 	auto vbox = new wxBoxSizer(wxVERTICAL);
 	auto top_horizontal_box = get_top_box_sizer();
@@ -122,23 +115,16 @@ Event function will execute each time the start button is clicked.
 
 @parame wxCommandEvent wxWidget class stores the button that fired the event
 */
-void Panel::on_start_button_click(wxCommandEvent & event)
+void Panel::on_start_button_click(wxCommandEvent& event)
 {
 	set_button_properties(tic_tac_toe_grid_3);
 	set_button_properties(tic_tac_toe_grid_4);
-
 	if (game_type_radio->GetSelection() == 0) 
 	{
 		//2) Gets a tic tac toe game from the TicTacToeManager class using the GameType enumeration
 		//tic_tac_toe_3 or tic_tac_toe_4 options.STUDENT MUST WRITE CODE FOR THIS
 
-/*
-
-	STOP copying my code!!! Copying and pasting my work and passing it off as your ideas is SCHOLASTIC DISHONESTY!!!
-	I spend alot of time writing and debugging my code and I didn't do it for YOU!!! If I catch you STEALING my work
-	again, I will notify the instructor and ACC!!! STOP CHEATING and do your own work!!!
-
-*/
+		board = manager->get_game(tic_tac_toe_3);
 
 		tic_tac_toe_grid_4->Show(false);
 		tic_tac_toe_grid_3->Show(true);
@@ -148,13 +134,7 @@ void Panel::on_start_button_click(wxCommandEvent & event)
 		//3) Gets a tic tac toe game from the TicTacToeManager class using the GameType enumeration
 		//tic_tac_toe_3 or tic_tac_toe_4 options.STUDENT MUST WRITE CODE FOR THIS
 
-/*
-
-	STOP copying my code!!! Copying and pasting my work and passing it off as your ideas is SCHOLASTIC DISHONESTY!!!
-	I spend alot of time writing and debugging my code and I didn't do it for YOU!!! If I catch you STEALING my work
-	again, I will notify the instructor and ACC!!! STOP CHEATING and do your own work!!!
-
-*/
+		board = manager->get_game(tic_tac_toe_4);
 
 		tic_tac_toe_grid_3->Show(false);
 		tic_tac_toe_grid_4->Show(true);
@@ -163,7 +143,12 @@ void Panel::on_start_button_click(wxCommandEvent & event)
 	//STUDENT MUST WRITE CODE FOR THIS
 	//4) Check first_player_radio GetSelection to determine whether X or O goes first. 
 	//if radio button selection 0 call the board start game function with X or O
-	
+
+	if (first_player_radio->GetSelection() == 0)
+		board->start_game("X");
+	else
+		board->start_game("O");
+
 	auto btn = dynamic_cast<wxButton*>(event.GetEventObject());
 	btn->Disable();
 	this->Layout();
@@ -180,7 +165,7 @@ Executes each time a peg button is clicked.
 	c) Enable the start_button.
 	d) Save the board game to the manager.
 */
-void Panel::on_peg_button_click(wxCommandEvent & event)
+void Panel::on_peg_button_click(wxCommandEvent& event)
 {
 	auto btn = dynamic_cast<wxButton*>(event.GetEventObject());
 	btn->Disable();
@@ -215,27 +200,19 @@ the final result of a previously played game.
 */
 void Panel::on_list_box_click(wxCommandEvent& event) 
 {
+	
 	//1) Write code to get a const reference to a vector of boards by calling the manager get_games function
 
 	//2) Write code get a const reference to one board using the history_list_box GetSelection function as 
 	//   the index for the boards vector
-	
-/*
-
-	STOP copying my code!!! Copying and pasting my work and passing it off as your ideas is SCHOLASTIC DISHONESTY!!!
-	I spend alot of time writing and debugging my code and I didn't do it for YOU!!! If I catch you STEALING my work
-	again, I will notify the instructor and ACC!!! STOP CHEATING and do your own work!!!
-
-*/
 
 	wxGridSizer* sizer;
 
-	if (board->get_pegs().size() == 9) 
+	if (manager->get_games()[history_list_box->GetSelection()]->get_pegs().size() == 9)
 	{
 		sizer = tic_tac_toe_grid_3;
 		tic_tac_toe_grid_4->Show(false);
 		tic_tac_toe_grid_3->Show(true);
-
 	}
 	else 
 	{
@@ -247,21 +224,14 @@ void Panel::on_list_box_click(wxCommandEvent& event)
 	int i = 1;
 	for (auto item : sizer->GetChildren())
 	{	//call board get_pegs[i-1] and call the val data member
-		item->GetWindow()->SetLabel(board->get_pegs()[i-1].val);
+		item->GetWindow()->SetLabel(manager->get_games()[history_list_box->GetSelection()]->get_pegs()[i-1].val);
 		item->GetWindow()->Disable();
 		i++;
 	}
 
 	//4)Write code to set the winner_text value to the board get_winner function
 
-/*
-
-	STOP copying my code!!! Copying and pasting my work and passing it off as your ideas is SCHOLASTIC DISHONESTY!!!
-	I spend alot of time writing and debugging my code and I didn't do it for YOU!!! If I catch you STEALING my work
-	again, I will notify the instructor and ACC!!! STOP CHEATING and do your own work!!!
-
-*/
-
+	winner_text->SetLabel(manager->get_games()[history_list_box->GetSelection()]->get_winner());
 }
 
 /*

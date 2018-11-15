@@ -24,6 +24,12 @@ void Tic_Tac_Toe_Manager::save_game(std::unique_ptr<Tic_Tac_Toe_Board> b)
 {
 	update_winner_count(b->get_winner());
 	boards.push_back(std::move(b));
+
+}
+
+const vector<std::unique_ptr<Tic_Tac_Toe_Board>>& Tic_Tac_Toe_Manager::get_games()
+{
+	return boards;
 }
 
 std::ostream& operator<<(std::ostream& out, const Tic_Tac_Toe_Manager& m)

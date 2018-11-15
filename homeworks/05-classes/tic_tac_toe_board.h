@@ -14,8 +14,6 @@ using std::vector;
 class Tic_Tac_Toe_Board
 {
 public:
-	Tic_Tac_Toe_Board() = default;
-//	Tic_Tac_Toe_Board(int x, int o, int c) : x_win(x), o_win(o), c_win(c) {}
 	bool game_over();
 	void start_game(string player);
 	void mark_board(int position);
@@ -23,7 +21,7 @@ public:
 	friend std::istream& operator >>(std::istream& in, Tic_Tac_Toe_Board& d);
 	friend std::ostream& operator <<(std::ostream& out, const Tic_Tac_Toe_Board& d);
 	string get_winner();
-	vector<Peg>& get_pegs();
+	const vector<Peg>& get_pegs();
 
 protected:
 	void set_next_player();
