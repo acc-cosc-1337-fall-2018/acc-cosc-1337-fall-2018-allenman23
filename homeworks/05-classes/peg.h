@@ -7,6 +7,7 @@ class Peg
 {
 public:
 	Peg() { val = " "; }
+	Peg(std::string v) : val(v) {}
 	std::string val;
 };
 

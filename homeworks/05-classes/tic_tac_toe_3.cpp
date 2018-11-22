@@ -9,6 +9,84 @@ TicTacToe3::TicTacToe3()
 	}
 }
 
+TicTacToe3::TicTacToe3(std::vector<Peg> p) : Tic_Tac_Toe_Board(p)
+{
+	bool check1;
+	bool check2;
+
+	//	check first column
+	check1 = (pegs[0].val == pegs[3].val);
+	check2 = (pegs[3].val == pegs[6].val);
+	if (check1 && check2)
+		if (pegs[0].val == "X")
+			next_player = "O";
+		else if (pegs[0].val == "O")
+			next_player = "X";
+
+	//  check second column
+	check1 = (pegs[1].val == pegs[4].val);
+	check2 = (pegs[4].val == pegs[7].val);
+	if (check1 && check2)
+		if (pegs[1].val == "X")
+			next_player = "O";
+		else if (pegs[1].val == "O")
+			next_player = "X";
+
+	//  check third column
+	check1 = (pegs[2].val == pegs[5].val);
+	check2 = (pegs[5].val == pegs[8].val);
+	if (check1 && check2)
+		if (pegs[2].val == "X")
+			next_player = "O";
+		else if (pegs[2].val == "O")
+			next_player = "X";
+
+	//	check first row
+	check1 = (pegs[0].val == pegs[1].val);
+	check2 = (pegs[1].val == pegs[2].val);
+	if (check1 && check2)
+		if (pegs[0].val == "X")
+			next_player = "O";
+		else if (pegs[0].val == "O")
+			next_player = "X";
+
+	//  check second row
+	check1 = (pegs[3].val == pegs[4].val);
+	check2 = (pegs[4].val == pegs[5].val);
+	if (check1 && check2)
+		if (pegs[3].val == "X")
+			next_player = "O";
+		else if (pegs[3].val == "O")
+			next_player = "X";
+
+	//  check third row
+	check1 = (pegs[6].val == pegs[7].val);
+	check2 = (pegs[7].val == pegs[8].val);
+	if (check1 && check2)
+		if (pegs[6].val == "X")
+			next_player = "O";
+		else if (pegs[6].val == "O")
+			next_player = "X";
+
+	//	check first diagonal
+	check1 = (pegs[0].val == pegs[4].val);
+	check2 = (pegs[4].val == pegs[8].val);
+	if (check1 && check2)
+		if (pegs[0].val == "X")
+			next_player = "O";
+		else if (pegs[0].val == "O")
+			next_player = "X";
+
+	//  check second diagonal
+	check1 = (pegs[2].val == pegs[4].val);
+	check2 = (pegs[4].val == pegs[6].val);
+	if (check1 && check2)
+		if (pegs[2].val == "X")
+			next_player = "O";
+		else if (pegs[2].val == "O")
+			next_player = "X";
+}
+
 void TicTacToe3::display_board(std::ostream& out) const
 {
 	cout << "\n";

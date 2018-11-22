@@ -1,7 +1,6 @@
 #ifndef TIC_TAC_TOE_BOARD_H
 #define TIC_TAC_TOE_BOARD_H
 
-//#include<string>
 #include<vector>
 #include<iostream>
 #include "peg.h"
@@ -14,6 +13,8 @@ using std::vector;
 class Tic_Tac_Toe_Board
 {
 public:
+	Tic_Tac_Toe_Board() = default;
+	Tic_Tac_Toe_Board(std::vector<Peg> p) : pegs(p) {}
 	bool game_over();
 	void start_game(string player);
 	void mark_board(int position);
@@ -37,4 +38,4 @@ protected:
 };
 
 
-#endif // TIC_TAC_TOE_BOARD_H
+#endif // !TIC_TAC_TOE_BOARD_H

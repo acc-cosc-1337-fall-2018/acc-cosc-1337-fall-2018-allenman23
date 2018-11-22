@@ -9,6 +9,113 @@ TicTacToe4::TicTacToe4()
 	}
 }
 
+TicTacToe4::TicTacToe4(std::vector<Peg> p) : Tic_Tac_Toe_Board(p)
+{
+	bool check1;
+	bool check2;
+	bool check3;
+
+	//	check first column
+	check1 = (pegs[0].val == pegs[4].val);
+	check2 = (pegs[4].val == pegs[8].val);
+	check3 = (pegs[8].val == pegs[12].val);
+	if (check1 && check2 && check3)
+		if (pegs[0].val == "X")
+			next_player = "O";
+		else if (pegs[0].val == "O")
+			next_player = "X";
+
+	//  check second column
+	check1 = (pegs[1].val == pegs[5].val);
+	check2 = (pegs[5].val == pegs[9].val);
+	check3 = (pegs[9].val == pegs[13].val);
+	if (check1 && check2 && check3)
+		if (pegs[1].val == "X")
+			next_player = "O";
+		else if (pegs[1].val == "O")
+			next_player = "X";
+
+	//  check third column
+	check1 = (pegs[2].val == pegs[6].val);
+	check2 = (pegs[6].val == pegs[10].val);
+	check3 = (pegs[10].val == pegs[14].val);
+	if (check1 && check2 && check3)
+		if (pegs[2].val == "X")
+			next_player = "O";
+		else if (pegs[2].val == "O")
+			next_player = "X";
+
+	//  check fourth column
+	check1 = (pegs[3].val == pegs[7].val);
+	check2 = (pegs[7].val == pegs[11].val);
+	check3 = (pegs[11].val == pegs[15].val);
+	if (check1 && check2 && check3)
+		if (pegs[3].val == "X")
+			next_player = "O";
+		else if (pegs[3].val == "O")
+			next_player = "X";
+
+	//	check first row
+	check1 = (pegs[0].val == pegs[1].val);
+	check2 = (pegs[1].val == pegs[2].val);
+	check3 = (pegs[2].val == pegs[3].val);
+	if (check1 && check2 && check3)
+		if (pegs[0].val == "X")
+			next_player = "O";
+		else if (pegs[0].val == "O")
+			next_player = "X";
+
+	//  check second row
+	check1 = (pegs[4].val == pegs[5].val);
+	check2 = (pegs[5].val == pegs[6].val);
+	check3 = (pegs[6].val == pegs[7].val);
+	if (check1 && check2 && check3)
+		if (pegs[4].val == "X")
+			next_player = "O";
+		else if (pegs[4].val == "O")
+			next_player = "X";
+
+	//  check third row
+	check1 = (pegs[8].val == pegs[9].val);
+	check2 = (pegs[9].val == pegs[10].val);
+	check3 = (pegs[10].val == pegs[11].val);
+	if (check1 && check2 && check3)
+		if (pegs[8].val == "X")
+			next_player = "O";
+		else if (pegs[8].val == "O")
+			next_player = "X";
+
+	//  check fourth row
+	check1 = (pegs[12].val == pegs[13].val);
+	check2 = (pegs[13].val == pegs[14].val);
+	check3 = (pegs[14].val == pegs[15].val);
+	if (check1 && check2 && check3)
+		if (pegs[12].val == "X")
+			next_player = "O";
+		else if (pegs[12].val == "O")
+			next_player = "X";
+
+	//	check first diagonal
+	check1 = (pegs[0].val == pegs[5].val);
+	check2 = (pegs[5].val == pegs[10].val);
+	check3 = (pegs[10].val == pegs[15].val);
+	if (check1 && check2 && check3)
+		if (pegs[0].val == "X")
+			next_player = "O";
+		else if (pegs[0].val == "O")
+			next_player = "X";
+
+	//  check second diagonal
+	check1 = (pegs[3].val == pegs[6].val);
+	check2 = (pegs[6].val == pegs[9].val);
+	check3 = (pegs[9].val == pegs[12].val);
+	if (check1 && check2 && check3)
+		if (pegs[3].val == "X")
+			next_player = "O";
+		else if (pegs[3].val == "O")
+			next_player = "X";
+}
+
 void TicTacToe4::display_board(std::ostream& out) const
 {
 	cout << "\n";
