@@ -22,7 +22,7 @@ private:
 	void draw_hours_text();
 	void draw_seconds_markers();
 	double get_angle(double degrees);
-
+	void draw_digital_time();
 	wxDC* device_context;
 	Clock clock;
 	
