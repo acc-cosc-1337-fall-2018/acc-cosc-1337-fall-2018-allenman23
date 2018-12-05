@@ -54,6 +54,7 @@ void MyClass::set_ptr_num(int val)
 
 MyClass & MyClass::operator=(MyClass other)
 {
+	delete other.ptr_num;
 	ptr_num = new int(*other.ptr_num);
 	return *this;
 }
@@ -61,4 +62,14 @@ MyClass & MyClass::operator=(MyClass other)
 MyClass::~MyClass()
 {
 	std::cout << "Num: " <<num << "\nPtr num: " << *ptr_num << "\nAddress at Ptr num: " << ptr_num << "\nDestructor...\n";
+}
+
+DynamicPtr::DynamicPtr()
+{
+	std::cout << "DynamicPtr Constructor runs\n";
+}
+
+DynamicPtr::~DynamicPtr()
+{
+	std::cout << "DynamicPtr Destructor runs\n";
 }

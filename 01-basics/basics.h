@@ -17,6 +17,15 @@ void initialize_vector_of_strings();
 #ifndef MY_CLASS_H
 #define MY_CLASS_H
 
+class DynamicPtr
+{
+public:
+	DynamicPtr();
+	~DynamicPtr();
+private:
+	int* ptr_num;
+};
+
 class MyClass
 {
 public:
